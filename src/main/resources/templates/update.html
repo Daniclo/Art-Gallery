@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Update piece</title>
+</head>
+<body>
+<div class="container">
+    <h1>Update piece</h1>
+    <form action="#" th:action="@{/view/save}" th:object="${piece}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+        <input type="number" th:field="*{price}" placeholder="Insert price" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2">Update</button>
+    </form>
+    <a th:href="@{/view/pieces}">Back</a>
+</div>
+</body>
+</html>

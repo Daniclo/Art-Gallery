@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Art Gallery Piece Manager</title>
+</head>
+<body>
+<div class="container my-2" align="center">
+    <h3>List of pieces</h3>
+    <table style="width: 80%" border="1"
+           class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="piece:${pieces}">
+            <td th:text="${piece.name}"></td>
+            <td th:text="${piece.price}"></td>
+            <td>
+                <a th:href="@{/view/update/{id}(id=${piece.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/view/delete/{id}(id=${piece.id})}" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/view/new}" class="btn btn-primary">Create</a>
+</div>
+</body>
+</html>
