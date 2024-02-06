@@ -33,7 +33,7 @@ public class PieceRestController implements PieceApiDoc {
         List<Piece> pieces = pieceService.findAllByArtist(name);
         Gson gson = new Gson();
         JsonElement json = JsonParser.parseString(gson.toJson(pieces.toString()));
-        Path p = Path.of("files/data.json");
+        Path p = Path.of("./files/data.json");
         try {
             Files.writeString(p,json.toString(), StandardOpenOption.CREATE);
             return new ResponseEntity<>(p.toFile().getAbsolutePath(), HttpStatus.OK);
